@@ -12,3 +12,7 @@ list.append('snake')
 list.append('turtle')
 
 puts list
+
+list.insert_at('test', 3)
+
+puts list

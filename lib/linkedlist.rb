@@ -92,6 +92,31 @@ module List
       nil
     end
 
+    def insert_at(val, index)
+      new = Node.new
+      new.value = val
+
+      if index == 0
+        new.next_node = @head
+        @head = new
+        return
+      elsif index == (@size - 1)
+        @tail.next_node = new
+        @tail = new
+        return
+      end
+
+      node = @head
+      count = 0
+      while count < (index - 1)
+        node = node.next_node
+        count += 1
+      end
+
+      new.next_node = node.next_node
+      node.next_node = new
+    end
+
     def to_s
       node = @head
 
