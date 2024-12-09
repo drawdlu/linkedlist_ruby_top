@@ -7,9 +7,10 @@ module List
   class LinkedList
     include List
 
-    attr_reader :head, :tail
+    attr_reader :head, :tail, :size
 
     def initialize
+      @size = 0
       @head = nil
       @tail = nil
     end
@@ -28,6 +29,16 @@ module List
         @tail.next_node = new
         @tail = new
       end
+
+      @size += 1
+    end
+
+    def prepend(val)
+      new = Node.new
+      new.value = val
+      new.next_node = @head
+      @head = new
+      @size += 1
     end
 
     def to_s
