@@ -41,6 +41,22 @@ module List
       @size += 1
     end
 
+    def at(index)
+      count = 0
+      node = @head
+      until count == index
+        node = node.next_node
+        count += 1
+
+        if node.nil?
+          puts "Node at index #{index} does not exist"
+          return
+        end
+      end
+
+      node
+    end
+
     def to_s
       node = @head
 
