@@ -78,6 +78,20 @@ module List
       false
     end
 
+    def find(val)
+      node = @head
+      index = 0
+
+      until node.nil?
+        return index if node.value == val
+
+        node = node.next_node
+        index += 1
+      end
+
+      nil
+    end
+
     def to_s
       node = @head
 
