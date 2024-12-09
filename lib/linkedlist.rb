@@ -66,6 +66,18 @@ module List
       @tail = node
     end
 
+    def contains?(val)
+      node = @head
+
+      until node.nil?
+        return true if node.value == val
+
+        node = node.next_node
+      end
+
+      false
+    end
+
     def to_s
       node = @head
 
