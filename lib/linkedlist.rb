@@ -57,6 +57,15 @@ module List
       node
     end
 
+    def pop
+      node = @head
+
+      node = node.next_node until node.next_node == @tail
+
+      node.next_node = nil
+      @tail = node
+    end
+
     def to_s
       node = @head
 
