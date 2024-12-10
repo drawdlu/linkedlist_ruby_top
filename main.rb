@@ -12,7 +12,3 @@ list.append('snake')
 list.append('turtle')
 
 puts list
-
-list.remove_at(3)
-
-puts list

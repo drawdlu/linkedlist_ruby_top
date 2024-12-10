@@ -131,11 +131,13 @@ module List
       @size -= 1
     end
 
+    private
+
     def to_s
       node = @head
 
       until node.nil?
-        print "(#{node.value}) -> "
+        print "( #{node.value} ) -> "
         node = node.next_node
       end
       puts 'nil'
