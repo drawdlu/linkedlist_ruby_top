@@ -13,6 +13,6 @@ list.append('turtle')
 
 puts list
 
-list.insert_at('test', 3)
+list.remove_at(3)
 
 puts list

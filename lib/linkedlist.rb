@@ -117,6 +117,29 @@ module List
       node.next_node = new
     end
 
+    def remove_at(index)
+      if index == 0
+        node = @head
+        @head = @head.next_node
+        node.next_node = nil
+        @size -= 1
+        return
+      elsif index == (@size - 1)
+        @tail = at(index - 1)
+        @tail.next_node = nil
+        @size -= 1
+        return
+      end
+
+      node = at(index)
+      previous_node = at(index - 1)
+
+      previous_node.next_node = node.next_node
+      node.next_node = nil
+
+      @size -= 1
+    end
+
     def to_s
       node = @head
 
