@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'node'
 
 module List
@@ -135,12 +133,13 @@ module List
 
     def to_s
       node = @head
+      string_ver = ''
 
       until node.nil?
-        print "( #{node.value} ) -> "
+        string_ver << "( #{node.value} ) -> "
         node = node.next_node
       end
-      puts 'nil'
+      string_ver << 'nil'
     end
   end
 end
