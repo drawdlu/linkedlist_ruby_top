@@ -64,6 +64,7 @@ module List
 
       node.next_node = nil
       @tail = node
+      @size -= 1
     end
 
     def contains?(val)
@@ -99,22 +100,16 @@ module List
       if index == 0
         new.next_node = @head
         @head = new
-        return
       elsif index == (@size - 1)
         @tail.next_node = new
         @tail = new
-        return
+      else
+        node = at(index - 1)
+        new.next_node = node.next_node
+        node.next_node = new
       end
 
-      node = @head
-      count = 0
-      while count < (index - 1)
-        node = node.next_node
-        count += 1
-      end
-
-      new.next_node = node.next_node
-      node.next_node = new
+      @size += 1
     end
 
     def remove_at(index)
@@ -122,20 +117,16 @@ module List
         node = @head
         @head = @head.next_node
         node.next_node = nil
-        @size -= 1
         return
       elsif index == (@size - 1)
         @tail = at(index - 1)
         @tail.next_node = nil
-        @size -= 1
-        return
+      else
+        node = at(index)
+        previous_node = at(index - 1)
+        previous_node.next_node = node.next_node
+        node.next_node = nil
       end
-
-      node = at(index)
-      previous_node = at(index - 1)
-
-      previous_node.next_node = node.next_node
-      node.next_node = nil
 
       @size -= 1
     end
