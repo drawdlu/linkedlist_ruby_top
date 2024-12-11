@@ -115,7 +115,6 @@ module List
         node = @head
         @head = @head.next_node
         node.next_node = nil
-        return
       elsif index == (@size - 1)
         @tail = at(index - 1)
         @tail.next_node = nil
